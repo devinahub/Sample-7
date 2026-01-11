@@ -10,7 +10,7 @@
       min-height: 100vh;
       display: grid;
       place-content: center;
-      background: #2D0B37; /* Deep Luxury Purple */
+      background: #E0B0FF; /* Beautiful Lilac Background */
       overflow-x: hidden;
       font-family: 'Georgia', serif;
     }
@@ -25,12 +25,12 @@
     #shine {
       font-size: 32px;
       font-weight: bold;
-      color: #000000; /* Classy Black */
+      color: #FFFFFF; /* Pure White Headline */
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 3px;
-      /* Gold Glow */
-      text-shadow: 0 0 10px #D4AF37, 0 0 20px #D4AF37;
+      /* Soft Gold Shadow to help white stand out on Lilac */
+      text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.8); 
     }
 
     .gallery {
@@ -47,11 +47,11 @@
       aspect-ratio: 1;
       object-fit: cover;
       border: 8px solid #D4AF37; /* Gold Frame */
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
     }
 
-    /* THIS FIXES THE FLIP DELAY */
+    /* IMAGE DELAYS (Fixes the stacking issue) */
     .gallery > img:nth-child(1) { animation-delay: calc(0 * var(--d)); --r: 10deg; }
     .gallery > img:nth-child(2) { animation-delay: calc(-0.2 * var(--d)); --r: -5deg; }
     .gallery > img:nth-child(3) { animation-delay: calc(-0.4 * var(--d)); --r: 15deg; }
@@ -72,18 +72,18 @@
       position: fixed;
       top: -1vh;
       font-size: 1.5rem;
-      color: #D4AF37; /* Gold Hearts */
+      color: #FFFFFF; /* White Hearts for Lilac theme */
       animation: fall linear forwards;
     }
 
     @keyframes fall { to { transform: translateY(105vh); } }
 
     .next-btn {
-      background: linear-gradient(45deg, #D4AF37, #F5E050);
-      color: #000000;
+      background: linear-gradient(45deg, #D4AF37, #F5E050); /* Gold Button */
+      color: #000000; /* Black text on Gold button */
       padding: 15px 30px;
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       font-weight: bold;
       margin-top: 40px;
       cursor: pointer;
@@ -94,7 +94,7 @@
       display: none;
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: #2D0B37;
+      background: #E0B0FF; /* Lilac Background */
       z-index: 1000;
       padding: 40px;
       box-sizing: border-box;
@@ -107,8 +107,11 @@
       max-width: 500px;
       margin: 0 auto;
       border-top: 10px solid #D4AF37;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
+</style>
+
+   
 </style>
 
 </head>
