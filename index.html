@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Private Valentine Surprise</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #E0B0FF; /* Lilac */
+      font-family: 'Georgia', serif;
+      overflow-x: hidden;
+    }
+
+    /* LOCK SCREEN STYLING */
+    #lockScreen {
+      text-align: center;
+      padding: 20px;
+    }
+
+    #passwordInput {
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #D4AF37;
+      font-size: 18px;
+      text-align: center;
+      width: 180px;
+      margin: 15px 0;
+      display: block;
+    }
+
+    /* SHIMMERING GOLD TITLE */
+    #shine {
+      font-family: 'Times New Roman', serif;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
+    }
+
+    /* PHOTO PAGE (Hidden) */
+    #photoPage { display: none; text-align: center; width: 100%; }
+
+    .gallery {
+      --d: 10s;
+      display: grid;
+      place-items: center;
+      width: 220px;
+      margin: 0 auto;
+    }
+
+    .gallery > img {
+      grid-area: 1/1;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 8px solid #D4AF37;
+      animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
+    }
+
+    /* Flipbook Animation Delays */
+    .gallery > img:nth-child(1) { animation-delay: calc(0 * var(--d)); --r: 10deg; }
+    .gallery > img:nth-child(2) { animation-delay: calc(-0.2 * var(--d)); --r: -5deg; }
+    .gallery > img:nth-child(3) { animation-delay: calc(-0.4 * var(--d)); --r: 15deg; }
+    .gallery > img:nth-child(4) { animation-delay: calc(-0.6 * var(--d)); --r: -10deg; }
+    .gallery > img:nth-child(5) { animation-delay: calc(-0.8 * var(--d)); --r: 5deg; }
+
+    @keyframes slide {
+      10% { transform: translateX(120%) rotate(var(--r)); }
+      0%, 100%, 20% { transform: translateX(0%) rotate(0deg); }
+    }
+    @keyframes z-order { 10%, 20% { z-index: 1; } 80% { z-index: 2; } }
+
+    /* LETTER PAGE (Hidden) */
+    #letterPage { display: none; text-align: center; width: 100%; padding: 20px; box-sizing: border-box; }
+
+    .letter-paper {
+      background: white;
+      padding: 30px;
+      max-width: 380px;
+      margin: 0 auto;
+      border-top: 10px solid #D4AF37;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .letter-paper h2 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 35px;
+      background: linear-gradient(to right, #8A6E2F, #D4AF37, #8A6E2F);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .letter-paper p {
+      font-family: 'Georgia', serif;
+      line-height: 1.8;
+      font-style: italic;
+      color: #444;
+      font-size: 18px;
+      border-left: 3px solid #D4AF37;
+      padding-left: 15px;
+    }
+
+    .action-btn {
+      background: linear-gradient(45deg, #D4AF37, #F5E050);
+      color: black;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      margin-top: 30px;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="lockScreen">
+    <div style="font-size: 50px; margin-bottom: 10px;">🔐</div>
+    <h2 style="color: white; letter-spacing: 1px;">Secret Access</h2>
+    <input type="password" id="passwordInput" placeholder="Enter Code...">
+    <button class="action-btn" onclick="unlockGift()">Unlock My Gift</button>
+  </div>
+
+  <div id="photoPage">
+    <div id="shine">Happy Valentine's Day Baby</div>
+    <div class="gallery">
+      <img src="https://i.postimg.cc/hGNpxv4P/15828127-1FCE-4916-BA7B-B36D3747A079-Original.jpg" alt="1">
+      <img src="https://i.postimg.cc/5tDnvy92/D30EC38C-33AE-4FE3-9B87-81E3C09A77F8-Original.jpg" alt="2">
+      <img src="https://i.postimg.cc/3wznpNr2/264B4AC7-B794-4BF6-9825-E380952154FD-2-Original.jpg" alt="3">
+      <img src="https://i.postimg.cc/C1DJ40dX/IMG-6667-Original.jpg" alt="4">
+      <img src="https://https://i.postimg.cc/6Q8MynXc/IMG-6590-Original.jpg" alt="5">
+    </div>
+    <button class="action-btn" onclick="openLetter()">Tap to view message ✉️</button>
+  </div>
+
+  <div id="letterPage">
+    <div class="letter-paper">
+      <h2>My Didi...</h2>
+      <p>
+        I wanted to give you something as unique as our love. This little space on the internet belongs only to us. <br><br>
+        Thank you for being my peace and my joy. Every moment with you is a gift I never want to stop opening. ❤️
+      </p>
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="https://wa.me/233535596911" class="action-btn">type your reply here 💬</a>
+        <br>
+        <button onclick="backToPhotos()" style="background:none; border:none; color:#888; margin-top:20px; cursor:pointer; text-decoration:underline;">Back to Photos</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function unlockGift() {
+      const code = document.getElementById('passwordInput').value;
+      if (code === "1402") {
+        document.getElementById('lockScreen').style.display = 'none';
+        document.getElementById('photoPage').style.display = 'block';
+      } else {
+        alert("Incorrect code! 😊");
+      }
+    }
+
+    function openLetter() {
+      document.getElementById('photoPage').style.display = 'none';
+      document.getElementById('letterPage').style.display = 'block';
+    }
+
+    function backToPhotos() {
+      document.getElementById('letterPage').style.display = 'none';
+      document.getElementById('photoPage').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
